@@ -1,0 +1,44 @@
+@import 'vars';
+
+.table-header {
+    height: 200px;
+    box-shadow: $shadow;
+    position: relative;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding-left: $padding;
+        position: relative;
+        .add-user-button {
+            position: absolute;
+            color: white;
+            background: #305eca;
+            font-size: 50px;
+            padding: 0px 15px;
+            border-radius: 50%;
+            bottom: -30px;
+            left: -15px;
+            cursor: pointer;
+        }
+
+        label {
+            .search-input {
+                border: none;
+                border-bottom: 1px solid black;
+                padding: 10px;
+                &:focus {
+                    outline: none;
+                }
+            }
+            i {
+                border: none;
+                border-bottom: 1px solid black;
+                padding: 10px;
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+}

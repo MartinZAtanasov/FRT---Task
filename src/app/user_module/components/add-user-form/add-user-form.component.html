@@ -1,0 +1,40 @@
+<div class="add-user-form">
+    <h2>Invite New User</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-row">
+            <div class="icon"> <i class="fa fa-user"></i></div>
+            <div class="form-control">
+                <input type="text" required ngModel name="firstName" minlength="2">
+                <label>*First Name</label>
+            </div>
+            <div class="form-control">
+                <input type="text" required ngModel name="lastName" minlength="2">
+                <label>*Last Name</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="icon"> <i class="fa fa-envelope"></i></div>
+            <div class="form-control email-input-control">
+                <input type="email" required ngModel name="email" email pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                <label>*Email</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="icon"> <i class="fa fa-key"></i></div>
+            <div class="form-control select-options">
+                <select ngModel name="role" required>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                  </select>
+                <label>*Role</label>
+            </div>
+        </div>
+        <div class="form-row end-row">
+            <button type="submit" [disabled]="!f.valid" [ngClass]="{disabled: !f.valid}">
+                Send Invitation 
+                <app-btn-spinner *ngIf="loading$ | async"></app-btn-spinner>
+            </button>
+            <span [ngStyle]="{'color': f.valid ? '#00800080' : '#ff000080'}"> {{f.valid ? 'Good to go' : 'Fill all the fields'}} </span>
+        </div>
+    </form>
+</div>
