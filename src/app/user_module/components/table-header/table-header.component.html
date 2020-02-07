@@ -1,7 +1,18 @@
 <div class="table-header">
     <div class="container">
-        <h1>Project Access</h1>
-        <label> <input type="text" class="search-input" placeholder="Type to filter the table"> <i class="fa fa-search"></i> </label>
-        <div class="add-user-button" (click)="onOpenNewUserModal()">+</div>
+        <div class="row">
+            <div class="first-col">
+                <div class="shape" (click)="onOpenNewUserModal()">
+                    <span>+</span>
+                </div>
+            </div>
+            <div class="second-col">
+                <h1>Project Access</h1>
+                <label> 
+                    <input type="text" placeholder="Type to filter the table">
+                    <img src="assets/images/search.svg" alt="" width="24px">
+                </label>
+            </div>
+        </div>
     </div>
 </div>

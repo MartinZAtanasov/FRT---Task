@@ -8,12 +8,17 @@
                 <th>STATUS</th>
                 <th>ACTIONS</th>
             </tr>
-            <tr *ngFor="let user of users | async">
-                <td><i class="fa fa-user"></i></td>
+            <tr *ngFor="let user of users | async" [ngClass]="{'inactive': !user.active}">
+                <td> 
+                    <div class="profile-img-container">
+                        <img src="assets/images/profile.svg" *ngIf="user.active"> 
+                        <img src="assets/images/profile-gray.svg" *ngIf="!user.active"> 
+                    </div>
+                </td>
                 <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
                 <td> <b>{{user.role}}</b> </td>
-                <td> {{user.active ? 'active' : 'not active'}} </td>
-                <td><i class="fa fa-cog"></i> <i class="fa fa-trash"></i></td>
+                <td> <img [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" alt=""> </td>
+                <td><i class="fa fa-cog" *ngIf="user.active"></i> <i class="fa fa-trash"></i></td>
             </tr>
         </table>
     </div>

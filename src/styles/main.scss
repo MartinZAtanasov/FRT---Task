@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://db.onlinewebfonts.com/c/623c7118249e082fe87a78e08506cb4b?family=Segoe+UI');
 @import 'vars';
 
-* {margin: 0; padding: 0; box-sizing: border-box;font-family: 'Montserrat', sans-serif;}
+* {margin: 0; padding: 0; box-sizing: border-box;font-family: 'Segoe UI', sans-serif;}
 
 body {
     .container {
         width: 80%;
         margin: 0px auto;
+
+        .row {
+            width: 100%;
+            display: flex;
+        }
+    }
+
+    h1 {
+        font-size: 36px;
     }
 }

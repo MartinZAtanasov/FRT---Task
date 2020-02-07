@@ -5,39 +5,65 @@
     box-shadow: $shadow;
     position: relative;
     .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         height: 100%;
-        padding-left: $padding;
-        position: relative;
-        .add-user-button {
-            position: absolute;
-            color: white;
-            background: #305eca;
-            font-size: 50px;
-            padding: 0px 15px;
-            border-radius: 50%;
-            bottom: -30px;
-            left: -15px;
-            cursor: pointer;
-        }
+        .row {
+            align-items: center;
+            height: 100%;
+            position: relative;
 
-        label {
-            .search-input {
-                border: none;
-                border-bottom: 1px solid black;
-                padding: 10px;
-                &:focus {
-                    outline: none;
+            .first-col {
+                width: 100px;
+                position: relative;
+                height: 100%;
+                .shape {
+                    position: absolute;
+                    bottom: -29px;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background-color: #305eca;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    span {
+                        color: white;
+                        font-size: 48px;
+                        font-family: 'Segoe UI light', sans-serif;
+                        position: relative;
+                        bottom: 5px;
+                    }
                 }
             }
-            i {
-                border: none;
-                border-bottom: 1px solid black;
-                padding: 10px;
-                position: relative;
-                top: 1px;
+            
+            .second-col {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                
+                label {
+                    input {
+                        border: none;
+                        border-bottom: 1px solid black;
+                        padding: 10px;
+                        font-size: 20px;
+                        &::placeholder {
+                            font-style: italic;
+                            color: #707070;
+                        }
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    img {
+                        border: none;
+                        border-bottom: 1px solid black;
+                        padding: 10px;
+                        position: relative;
+                        top: 16px;
+                        width: 35px;
+                    }
+                }
             }
         }
     }
