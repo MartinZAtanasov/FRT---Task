@@ -1,6 +1,6 @@
 import { UserService } from './../../user.service';
 import { State, User } from './../../store/user.reducer';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllUsers$ } from '../../store/user.selectors';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class TableComponent implements OnInit, OnDestroy {
 
+  @Output() openDelUserModal: EventEmitter<string> = new EventEmitter();
   subs: Subscription[] = [];
   // Table
   users: User[];
@@ -107,6 +108,14 @@ export class TableComponent implements OnInit, OnDestroy {
     this.sortProperty.types[type] = !this.sortProperty.types[type];
   }
 
+  ngOnDestroy() {
+    this.subs.forEach( v => v.unsubscribe());
+  }
+
+  deleteUser(id: string): void {
+    this.openDelUserModal.emit(id);
+  }
+
   // Helper Functions
   filterUsers(user: User, filterString: string) {
     const values = [user.firstName, user.lastName, user.email].map( v => v.toLowerCase());
@@ -115,8 +124,5 @@ export class TableComponent implements OnInit, OnDestroy {
     return pass;
   }
 
-  ngOnDestroy() {
-    this.subs.forEach( v => v.unsubscribe());
-  }
 
 }

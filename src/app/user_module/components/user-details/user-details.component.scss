@@ -1,6 +1,7 @@
 @import 'vars';
 
 .user-details {
+    transition: .2s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -33,6 +34,19 @@
         .img-container {
             width: 60px;
             text-align: center;
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.inactive {
+    .form {
+        opacity: .3;
+        button {
+            opacity: 0;
+            pointer-events: none;
         }
     }
 }

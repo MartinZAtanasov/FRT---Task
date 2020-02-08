@@ -37,6 +37,7 @@ form {
         .form-control {
             position: relative;
             margin-left: 5px;
+            flex-grow: 1;
             input {
                 width: 100%;
                 font-size: 14px;
@@ -71,7 +72,6 @@ form {
             }
         }
         .select-options {
-            width: 177px;
             select {
                 width: 100%;
                 border: none;

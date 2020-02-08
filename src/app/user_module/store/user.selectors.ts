@@ -24,7 +24,7 @@ export const error$ = createSelector(
     state => state.error
 );
 
-export const selectUser = createSelector(
+export const selectUser$ = createSelector(
     selectUsersState,
     (state: fromUsers.State, id: string) => state.entities[id]
 );

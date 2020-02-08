@@ -21,10 +21,12 @@ $color-purple: #7E7EF1;
     font-family: 'Segoe UI semibold', sans-serif;
     width: 142px;
     height: 40px;
+    line-height: 40px;
 
     @if $size != 0 {
         width: 210px;
         height: 60px;
+        line-height: 60px;
     }
     @if $shadow != 0 {
         box-shadow: 0px 3px 6px #00000029;

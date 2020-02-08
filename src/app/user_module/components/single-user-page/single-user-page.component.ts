@@ -1,5 +1,5 @@
 import { exhaustMap, take } from 'rxjs/operators';
-import { selectUser, selectAllUsers$ } from './../../store/user.selectors';
+import { selectUser$, selectAllUsers$ } from './../../store/user.selectors';
 import { State, User } from './../../store/user.reducer';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -24,7 +24,7 @@ export class SingleUserPageComponent implements OnInit {
     });
 
     this.user$ = this.route.params.pipe(
-      exhaustMap( params => this.store.select(selectUser, params.id))
+      exhaustMap( params => this.store.select(selectUser$, params.id))
     );
   }
 

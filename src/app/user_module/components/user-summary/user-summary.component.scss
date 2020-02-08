@@ -1,6 +1,7 @@
 @import 'vars';
 
 .user-summary {
+    transition: .2s ease;
     .img-container {
         display: flex;
         flex-direction: column;
@@ -18,6 +19,7 @@
     }
     .name {
         margin: 40px 0;
+        text-align: center;
         h1 {
             font-family: 'Segoe UI semibold', sans-serif;
             font-size: 48px;
@@ -32,8 +34,19 @@
     }
     .botton-container {
         text-align: center;
+        transition: .2s ease;
         button {
             @include button($color-purple, 1, 1);
         }
+    }
+}
+
+.inactive {
+    .name {
+        opacity: .33;
+    }
+    .botton-container {
+        opacity: 0;
+        pointer-events: none;
     }
 }

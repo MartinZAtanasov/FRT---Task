@@ -10,9 +10,12 @@
             border-collapse: collapse;
             font-size: 16px;
             .inactive {
-                b, small {
+                b, small, .profile-img-container {
                     opacity: .3;
                 }
+            }
+            .active-th {
+                opacity: 1!important;
             }
             tr {
                 padding: 5px 0;
@@ -23,6 +26,8 @@
                     padding: 15px 10px;
                     border-bottom: 3px solid $table-border-color;
                     cursor: pointer;
+                    opacity: .33;
+                    transition: .2s;
                     &:nth-child(1) {
                         border: none;
                         width: 100px;
@@ -37,6 +42,11 @@
                     img {
                         margin-left: 10px;
                         margin-bottom: 2px;
+                    }
+                }
+                .switch-container {
+                    img {
+                        cursor: pointer;
                     }
                 }
                 td {

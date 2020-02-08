@@ -3,24 +3,40 @@
         <table>
             <tr>
                 <th></th>
-                <th (click)="onSort('name')">USER <img src="assets/images/caret-down-active.svg" alt=""></th>
-                <th (click)="onSort('role')">ROLE <img src="assets/images/caret-down-active.svg" alt=""></th>
-                <th (click)="onSort('status')">STATUS <img src="assets/images/caret-down-active.svg" alt=""></th>
+                <th 
+                    (click)="onSort('name')"
+                    [ngClass]="{'active-th': sortProperty.activeSort === 'name'}">
+                        USER 
+                        <img src="assets/images/caret-down-active.svg" alt="">
+                </th>
+                <th 
+                    (click)="onSort('role')"
+                    [ngClass]="{'active-th': sortProperty.activeSort === 'role'}">
+                        ROLE 
+                        <img src="assets/images/caret-down-active.svg" alt="">
+                </th>
+                <th 
+                    (click)="onSort('status')"
+                    [ngClass]="{'active-th': sortProperty.activeSort === 'status'}">
+                        STATUS 
+                        <img src="assets/images/caret-down-active.svg" alt="">
+                </th>
                 <th>ACTIONS</th>
             </tr>
             <tr *ngFor="let user of displayedUsers()" [ngClass]="{'inactive': !user.active}">
                 <td> 
                     <div class="profile-img-container">
-                        <img src="assets/images/profile.svg" *ngIf="user.active"> 
-                        <img src="assets/images/profile-gray.svg" *ngIf="!user.active"> 
+                        <img src="assets/images/profile.svg"> 
                     </div>
                 </td>
                 <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
                 <td> <b>{{user.role}}</b> </td>
-                <td> <img [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" alt=""> </td>
+                <td class="switch-container">
+                    <img [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" alt="">
+                </td>
                 <td>
                     <i class="fa fa-cog" (click)="navigatoToUser(user.id)"></i> 
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" (click)="deleteUser(user.id)"></i>
                 </td>
             </tr>
         </table>

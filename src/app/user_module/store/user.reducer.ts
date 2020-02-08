@@ -1,7 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { onAddUser, addUser, errorUser, onFetchUsers, fetchUsers } from './user.actions';
-
+import * as fromUserAction from './user.actions';
 export interface User {
     id: string;
     firstName: string;
@@ -28,13 +27,19 @@ export const initialState: State = adapter.getInitialState({
   error: null,
 });
 const recipesReducer = createReducer(initialState,
-    on(addUser, (state, newRecipe) => adapter.addOne(newRecipe, {...state, loading: false})),
-    on(onAddUser, state => ({...state, loading: true, error: null})),
+    on(
+      fromUserAction.onAddUser,
+      fromUserAction.onUpdateUser,
+      fromUserAction.onDeleteUser,
+      fromUserAction.onFetchUsers,
+      state => ({...state, loading: true, error: null})
+    ),
+    on(fromUserAction.addUser, (state, newRecipe) => adapter.addOne(newRecipe, {...state, loading: false})),
+    on(fromUserAction.errorUser, (state, payload) => ({...state, loading: false, error: payload.msg})),
+    on(fromUserAction.fetchUsers, (state, {users}) => adapter.addAll(users, {...state, loading: false})),
+    on(fromUserAction.updateUser, (state, {user} ) => adapter.updateOne(user, {...state, loading: false})),
+    on(fromUserAction.deleteUser, (state, {id} ) => adapter.removeOne(id, {...state, loading: false})),
 
-    on(errorUser, (state, payload) => ({...state, loading: false, error: payload.msg})),
-
-    on(onFetchUsers, state => ({...state, loading: true, error: null})),
-    on(fetchUsers, (state, {users}) => adapter.addAll(users, {...state, loading: false})),
 );
 export function reducer(state: State | undefined, action: Action) {
   return recipesReducer(state, action);

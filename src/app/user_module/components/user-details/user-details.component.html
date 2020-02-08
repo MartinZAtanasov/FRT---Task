@@ -1,12 +1,15 @@
-<div class="user-details">
+<div class="user-details" [ngClass]="{'inactive': !user?.active}">
     <div class="title">
         <h1>Details</h1>
     </div>
     <div class="active">
         <div class="img-container">
-            <img src="assets/images/switch-active.svg" alt="">
+            <img 
+                [src]="user?.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" 
+                (click)="user.active = !user.active"
+            >
         </div>
-        <span>The user is <b>{{'Active'}}</b></span>
+        <span>The user is <b>{{ user?.active ? 'Active' : 'Inactive'}}</b></span>
     </div>
     <div class="form">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">

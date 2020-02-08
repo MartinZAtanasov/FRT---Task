@@ -17,6 +17,7 @@ import { UserHeaderComponent } from './components/user-header/user-header.compon
 import { UserSummaryComponent } from './components/user-summary/user-summary.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPermissionsComponent } from './components/user-permissions/user-permissions.component';
+import { DelUserModalComponent } from './components/del-user-modal/del-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserPermissionsComponent } from './components/user-permissions/user-per
   UserSummaryComponent,
   UserDetailsComponent,
   UserPermissionsComponent,
+  DelUserModalComponent,
   ],
   imports: [
     CommonModule,
