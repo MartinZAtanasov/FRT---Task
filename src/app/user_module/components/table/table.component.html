@@ -3,12 +3,12 @@
         <table>
             <tr>
                 <th></th>
-                <th>USER</th>
-                <th>ROLE</th>
-                <th>STATUS</th>
+                <th (click)="onSort('name')">USER <img src="assets/images/caret-down-active.svg" alt=""></th>
+                <th (click)="onSort('role')">ROLE <img src="assets/images/caret-down-active.svg" alt=""></th>
+                <th (click)="onSort('status')">STATUS <img src="assets/images/caret-down-active.svg" alt=""></th>
                 <th>ACTIONS</th>
             </tr>
-            <tr *ngFor="let user of users | async" [ngClass]="{'inactive': !user.active}">
+            <tr *ngFor="let user of displayedUsers()" [ngClass]="{'inactive': !user.active}">
                 <td> 
                     <div class="profile-img-container">
                         <img src="assets/images/profile.svg" *ngIf="user.active"> 
@@ -24,5 +24,19 @@
                 </td>
             </tr>
         </table>
+        <div class="controls">
+            <div class="select-rows">
+                Records on page
+            </div>
+            <div class="pagination" *ngIf="pages()">
+                <span (click)="navigate(false)" [ngClass]="{'disabled': currentPage === 1}">Previous</span>
+                <ul>
+                    <li *ngFor="let page of pagination()" [ngClass]="{'active-page': +page === currentPage}" (click)="selectPage(page)">
+                        {{page}}
+                    </li>
+                </ul>
+                <span (click)="navigate(true)" [ngClass]="{'disabled': currentPage === pages()}">Next</span>
+            </div>
+        </div>
     </div>
 </div>

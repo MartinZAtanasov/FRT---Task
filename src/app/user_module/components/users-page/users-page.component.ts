@@ -2,7 +2,7 @@ import { selectAllUsers$ } from './../../store/user.selectors';
 import { State } from './../../store/user.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { take } from 'rxjs/operators';
+import { take, filter } from 'rxjs/operators';
 import { onFetchUsers } from '../../store/user.actions';
 
 @Component({

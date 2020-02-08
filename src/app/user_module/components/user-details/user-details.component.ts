@@ -17,7 +17,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   ngOnInit() {
-    this.user$.subscribe( user => user ? this.copyUser = {...user} : null);
+    this.subscription = this.user$.subscribe( user => user ? this.copyUser = {...user} : null);
   }
 
   onSubmit(form: NgForm) {

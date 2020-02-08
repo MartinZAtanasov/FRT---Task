@@ -1,3 +1,4 @@
+import { UserService } from './../../user.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,15 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TableHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   @Output() openNewUserModal: EventEmitter<null> = new EventEmitter();
+
+  filterString: string;
 
   ngOnInit() {
   }
 
   onOpenNewUserModal() {
     this.openNewUserModal.emit();
+  }
+
+  onEmitString() {
+    this.userService.filterSubject.next(this.filterString);
   }
 
 }

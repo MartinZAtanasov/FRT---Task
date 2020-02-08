@@ -9,7 +9,7 @@
             <div class="second-col">
                 <h1>Project Access</h1>
                 <label> 
-                    <input type="text" placeholder="Type to filter the table">
+                    <input type="text" placeholder="Type to filter the table" [(ngModel)]="filterString" (input)="onEmitString()">
                     <img src="assets/images/search.svg" alt="" width="24px">
                 </label>
             </div>
