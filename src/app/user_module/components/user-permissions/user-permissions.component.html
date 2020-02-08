@@ -1,100 +1,50 @@
 <div class="user-permissions">
     <div class="title">
         <h1>Permissions</h1>
-        <span>{{'Admin'}}</span>
+        <span>{{user?.role === 'Admin' ? 'Admin' : 'User'}}</span>
     </div>
-    <div class="super-admin">
+    <div class="super-admin" [ngClass]="{'inactive': user?.role === 'User'}">
         <span><b>Super Admin</b></span>
-        <img src="assets/images/switch-not-active.svg" alt="">
+        <img 
+            [src]="user?.superAdmin ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+            (click)="switchSuperAdmin()"
+        >
     </div>
     <div class="permissions">
 
-       <!-- GROUP 1 -->
-       <div class="permission-group">
-        <div class="permission-title" (click)="showGroupOne = !showGroupOne">
-            <div class="icon">
-                <img src="assets/images/caret-down.png" alt="">
+        <div class="permission-group" *ngFor="let group of permissionGroups">
+            <div class="permission-title">
+                <div class="icon" (click)="showGroups[group] = !showGroups[group]">
+                    <img src="assets/images/caret-down.png" alt="">
+                </div>
+                <div class="group" (click)="showGroups[group] = !showGroups[group]">
+                    <b>Permission group {{group}}</b>
+                </div>
+                <div class="switch">
+                    <img 
+                        [src]="groups[group][0] ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                        (click)="switchGroup(group)"
+                    >
+                </div>
             </div>
-            <div class="group">
-                <b>Permission group 1</b>
-            </div>
-            <div class="switch">
-                <img src="assets/images/switch-active.svg" alt="">
-            </div>
-        </div>
 
-        <div class="permissions-list" [ngClass]="{'open': showGroupOne}">
-            <ul>
-                <li *ngFor="let permission of permissions">
-                    <div class="permission-name">
-                        <div class="shape"></div>
-                        <p>Permission {{'1' + (permission+1)}}</p>
-                    </div>
-                    <div class="permission-switch">
-                        <img src="assets/images/switch-active.svg" alt="">
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- GROUP 2 -->
-    <div class="permission-group">
-        <div class="permission-title" (click)="showGroupTwo = !showGroupTwo">
-            <div class="icon">
-                <img src="assets/images/caret-down.png" alt="">
-            </div>
-            <div class="group">
-                <b>Permission group 2</b>
-            </div>
-            <div class="switch">
-                <img src="assets/images/switch-active.svg" alt="">
+            <div class="permissions-list" [ngClass]="{'open': showGroups[group]}">
+                <ul>
+                    <li *ngFor="let permission of permissions">
+                        <div class="permission-name">
+                            <div class="shape"></div>
+                            <p>Permission {{group}}{{permission}}</p>
+                        </div>
+                        <div class="permission-switch">
+                            <img 
+                                [src]="groups[group][permission] ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                                (click)="switchPermission(group, permission)"
+                            >
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="permissions-list" [ngClass]="{'open': showGroupTwo}">
-            <ul>
-                <li *ngFor="let permission of permissions">
-                    <div class="permission-name">
-                        <div class="shape"></div>
-                        <p>Permission {{'2' + (permission+1)}}</p>
-                    </div>
-                    <div class="permission-switch">
-                        <img src="assets/images/switch-active.svg" alt="">
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- GROUP 3 -->
-    <div class="permission-group">
-        <div class="permission-title" (click)="showGroupThree = !showGroupThree">
-            <div class="icon">
-                <img src="assets/images/caret-down.png" alt="">
-            </div>
-            <div class="group">
-                <b>Permission group 3</b>
-            </div>
-            <div class="switch">
-                <img src="assets/images/switch-active.svg" alt="">
-            </div>
-        </div>
-
-        <div class="permissions-list" [ngClass]="{'open': showGroupThree}">
-            <ul>
-                <li *ngFor="let permission of permissions">
-                    <div class="permission-name">
-                        <div class="shape"></div>
-                        <p>Permission {{'3' + (permission+1)}}</p>
-                    </div>
-                    <div class="permission-switch">
-                        <img src="assets/images/switch-active.svg" alt="">
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
 
     </div>
 </div>

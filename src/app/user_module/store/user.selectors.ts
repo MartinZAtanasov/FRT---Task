@@ -9,11 +9,6 @@ export const selectAllUsers$ = createSelector(
     fromUsers.selectAll
 );
 
-export const selecEntities$ = createSelector(
-    selectUsersState,
-    fromUsers.selectEntities
-);
-
 export const loading$ = createSelector(
     selectUsersState,
     state => state.loading

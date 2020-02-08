@@ -4,6 +4,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { loading$ } from '../../store/user.selectors';
 
 @Component({
   selector: 'app-user-details',
@@ -15,6 +16,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   constructor(private store: Store<State>) { }
 
   @Input() user$: Observable<User>;
+  loading$: Observable<boolean>;
   copyUser: User;
   subscription: Subscription;
   user: User;
@@ -24,14 +26,21 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       this.copyUser = {...user};
       this.user = user;
     });
+    this.loading$ = this.store.select(loading$);
   }
 
   onSubmit(form: NgForm) {
     this.user.firstName = form.value.firstName;
+    this.user.lastName = form.value.lastName;
+    this.user.role = form.value.role;
     this.store.dispatch(onUpdateUser(this.user));
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  switchStatus(): void {
+    this.store.dispatch(onUpdateUser({...this.user, active: !this.user.active}));
   }
 }

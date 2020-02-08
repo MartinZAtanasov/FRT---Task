@@ -6,7 +6,7 @@
         <div class="img-container">
             <img 
                 [src]="user?.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" 
-                (click)="user.active = !user.active"
+                (click)="switchStatus()"
             >
         </div>
         <span>The user is <b>{{ user?.active ? 'Active' : 'Inactive'}}</b></span>
@@ -17,6 +17,7 @@
                 <div class="form-control">
                     <input type="text"
                     minlength="2"
+                    required
                     name="firstName"
                     [ngModel]="copyUser?.firstName"
                     (ngModelChange)="copyUser.firstName=$event">
@@ -27,6 +28,7 @@
                 <div class="form-control">
                     <input type="text"
                     minlength="2"
+                    required
                     name="lastName"
                     [ngModel]="copyUser?.lastName"
                     (ngModelChange)="copyUser.lastName=$event">
@@ -48,7 +50,9 @@
                 </div>
             </div>
             <div class="form-row">
-                <button type="submit">Save Changes</button>
+                <button type="submit" [ngClass]="{'disabled': !f.valid}" [disabled]="!f.valid">
+                    Save Changes
+                </button>
             </div>
         </form>
     </div>

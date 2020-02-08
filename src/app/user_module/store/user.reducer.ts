@@ -9,10 +9,32 @@ export interface User {
     role: string;
     active: boolean;
     permissions?: {
-        group1: {},
-        group2: {}
-        group3: {}
+      1?: {
+        0: boolean,
+        1: boolean,
+        2: boolean,
+        3: boolean,
+        4: boolean,
+        5: boolean,
+      },
+      2?: {
+        0: boolean,
+        1: boolean,
+        2: boolean,
+        3: boolean,
+        4: boolean,
+        5: boolean,
+      },
+      3?: {
+        0: boolean,
+        1: boolean,
+        2: boolean,
+        3: boolean,
+        4: boolean,
+        5: boolean,
+      }
     };
+    superAdmin?: boolean;
     type?: string;
 }
 
@@ -47,9 +69,4 @@ export function reducer(state: State | undefined, action: Action) {
 
 export const userFeatureKey = 'user';
 
-export const {
-  selectAll,
-  selectEntities,
-  selectIds,
-  selectTotal
-} = adapter.getSelectors();
+export const { selectAll } = adapter.getSelectors();

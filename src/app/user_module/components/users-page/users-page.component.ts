@@ -1,9 +1,10 @@
-import { selectAllUsers$ } from './../../store/user.selectors';
+import { selectAllUsers$, loading$ } from './../../store/user.selectors';
 import { State } from './../../store/user.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { onFetchUsers } from '../../store/user.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-page',
@@ -18,10 +19,14 @@ export class UsersPageComponent implements OnInit {
   delUserModal = false;
   delUserId: string;
 
+  loading$: Observable<boolean>;
+
   ngOnInit() {
     this.store.select(selectAllUsers$).pipe(take(1)).subscribe( users => {
       if (!users.length) { this.store.dispatch(onFetchUsers()); }
     });
+
+    this.loading$ = this.store.select(loading$);
   }
 
   openDelUserModal(id: string) {

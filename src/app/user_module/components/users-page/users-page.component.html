@@ -7,3 +7,5 @@
 <app-modal *ngIf="delUserModal" (closeModal)="delUserModal = false"> 
     <app-del-user-modal [userId]="delUserId"></app-del-user-modal>
 </app-modal>
+
+<app-loading *ngIf="loading$ | async"></app-loading>

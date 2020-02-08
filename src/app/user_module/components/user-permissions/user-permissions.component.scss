@@ -23,6 +23,15 @@
         padding-bottom: 20px;
         padding-left: 60px;
         padding-right: 5px;
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+    .inactive {
+        opacity: .3;
+        pointer-events: none;
     }
 
     .permissions {
@@ -35,14 +44,21 @@
                 .icon {
                     width: 60px;
                     text-align: center;
+                    cursor: pointer;
                 }
                 .group, .switch {
                     border-top: 2px solid #e8e8e8;
                     flex-grow: 1;
                 }
+                .group {
+                    cursor: pointer;
+                }
                 .switch {
                     text-align: right;
                     padding-right: 5px;
+                    img {
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -73,13 +89,17 @@
                                 width: 5px;
                                 height: 5px;
                                 border-radius: 50%;
-                                background: $color-light-blue;
+                                background: #ff0000;
                                 margin-right: 10px;
                             }
                         }
                         .permission-switch {
                             display: flex;
                             align-items: center;
+
+                            img {
+                                cursor: pointer;
+                            }
                         }
                     }
                 }

@@ -32,7 +32,6 @@
         <div class="form-row end-row">
             <button type="submit" [disabled]="!f.valid" [ngClass]="{disabled: !f.valid}">
                 Send Invitation 
-                <app-btn-spinner *ngIf="loading$ | async"></app-btn-spinner>
             </button>
             <span [ngStyle]="{'color': f.valid ? '#00800080' : '#ff000080'}"> {{f.valid ? 'Good to go' : 'Fill all the fields'}} </span>
         </div>

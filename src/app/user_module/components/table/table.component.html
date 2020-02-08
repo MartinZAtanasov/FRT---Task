@@ -32,7 +32,10 @@
                 <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
                 <td> <b>{{user.role}}</b> </td>
                 <td class="switch-container">
-                    <img [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" alt="">
+                    <img 
+                        [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                        (click)="switchStatus(user)"
+                    >
                 </td>
                 <td>
                     <i class="fa fa-cog" (click)="navigatoToUser(user.id)"></i> 

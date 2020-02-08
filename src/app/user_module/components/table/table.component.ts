@@ -1,6 +1,7 @@
+import { onUpdateUser } from './../../store/user.actions';
 import { UserService } from './../../user.service';
 import { State, User } from './../../store/user.reducer';
-import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllUsers$ } from '../../store/user.selectors';
 import { Router } from '@angular/router';
@@ -114,6 +115,10 @@ export class TableComponent implements OnInit, OnDestroy {
 
   deleteUser(id: string): void {
     this.openDelUserModal.emit(id);
+  }
+
+  switchStatus(user: User): void {
+    this.store.dispatch(onUpdateUser({...user, active: !user.active}));
   }
 
   // Helper Functions

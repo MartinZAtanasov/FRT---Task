@@ -24,6 +24,11 @@
         form {
             height: 100%;
             position: relative;
+
+            .disabled {
+                background: #c6c6c6;
+                color: #979797;
+            }
         }
     }
     .active {
