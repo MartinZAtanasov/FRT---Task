@@ -6,99 +6,23 @@
     }
     form {
         margin: 50px 0;
-        input {
-            border: none;
-            border-bottom: 2px solid $form-input-border;
+
+        button {
+            margin-left: 40px;
+            @include button($color-light-blue, 0, 0)
+        }
+
+        .disabled {
+            background: #c6c6c6;
+            color: #979797;
+        }
+
+        .icon {
             padding: 5px;
-            &:focus {
-                outline: none;
-            }
+            width: 40px;
+            margin-right: 10px;
         }
-        .form-row {
-            display: flex;
-            padding: 20px 0;
 
-            .select-options {
-                width: 177px;
-                select {
-                    width: 100%;
-                    border: none;
-                    border-bottom: 2px solid $form-input-border;
-                    padding: 5px;
-                    &:focus {
-                        outline: none;
-                    }
-                    &:focus ~ label {
-                        bottom: 35px;
-                        font-size: 10px;
-                        color: $form-color-blue;
-                    }
-                    &:valid ~ label {
-                        bottom: 35px;
-                        font-size: 10px;
-                        color: $form-color-blue;
-                    }
-                }
-            }
-            
-            button {
-                margin-left: 40px;
-                background: #44a0d3;
-                color: white;
-                outline: none;
-                border: none;
-                padding: 14px 25px;
-                border-radius: 20px;
-                cursor: pointer;
-            }
-
-            .disabled {
-                background: #44a1d375;
-            }
-
-            .icon {
-                padding: 5px;
-                width: 40px;
-                margin-right: 10px;
-            }
-
-            .form-control {
-                position: relative;
-                margin-left: 5px;
-                input {
-                    width: 100%;
-                    font-size: 14px;
-                    &:focus ~ label {
-                        bottom: 35px;
-                        font-size: 10px;
-                        color: $form-color-blue;
-                    }
-                    &:valid ~ label {
-                        bottom: 35px;
-                        font-size: 10px;
-                        color: $form-color-blue;
-                    }
-                }
-                .ng-invalid.ng-dirty ~ label {
-                    color: red;
-                }
-                .ng-touched ~ label {
-                    color: red;
-                    bottom: 35px;
-                    font-size: 10px;
-                    color: $form-color-blue;
-                }
-                label {
-                    position: absolute;
-                    pointer-events: none;
-                    left: 5px;
-                    bottom: 7px;
-                    font-size: 14px;
-                    transition: .2s ease;
-                    color: $table-not-selected;
-                }
-            }
-        }
         .end-row {
             align-items: center;
             justify-content: space-between;

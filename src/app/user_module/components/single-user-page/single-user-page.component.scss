@@ -1,0 +1,15 @@
+@import 'vars';
+
+.user-content {
+    background: $gray-bg;
+    padding: 60px 0;
+    .row {
+        justify-content: space-between;
+        .col {
+            &:nth-child(1) {
+                padding-left: 25px;
+            }
+        }
+    }
+}
+

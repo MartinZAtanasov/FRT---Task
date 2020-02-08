@@ -18,7 +18,10 @@
                 <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
                 <td> <b>{{user.role}}</b> </td>
                 <td> <img [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" alt=""> </td>
-                <td><i class="fa fa-cog" *ngIf="user.active"></i> <i class="fa fa-trash"></i></td>
+                <td>
+                    <i class="fa fa-cog" (click)="navigatoToUser(user.id)"></i> 
+                    <i class="fa fa-trash"></i>
+                </td>
             </tr>
         </table>
     </div>

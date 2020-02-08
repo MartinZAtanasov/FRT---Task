@@ -1,0 +1,89 @@
+@import 'vars';
+
+.user-permissions {
+    min-width: 500px;
+    height: 525px;
+    .title {
+        padding-left: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 40px;
+        padding-right: 5px;
+        span {
+            font-size: 16px;
+            font-family: 'Segoe UI light', sans-serif;
+        }
+    }
+
+    .super-admin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+        padding-left: 60px;
+        padding-right: 5px;
+    }
+
+    .permissions {
+        .permission-group {
+            .permission-title {
+                display: flex;
+                div {
+                    padding: 20px 0;
+                }
+                .icon {
+                    width: 60px;
+                    text-align: center;
+                }
+                .group, .switch {
+                    border-top: 2px solid #e8e8e8;
+                    flex-grow: 1;
+                }
+                .switch {
+                    text-align: right;
+                    padding-right: 5px;
+                }
+            }
+
+            .closed {
+                height: 0;
+            }
+            .open {
+                height: 170px!important;
+            }
+
+            .permissions-list {
+                height: 0;
+                overflow: hidden;
+                transition: .2s ease;
+                ul {
+                    list-style-type: none;
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 5px 0;
+                        padding-right: 5px;
+                        padding-left: 70px;
+                        .permission-name {
+                            display: flex;
+                            align-items: center;
+                            .shape {
+                                width: 5px;
+                                height: 5px;
+                                border-radius: 50%;
+                                background: $color-light-blue;
+                                margin-right: 10px;
+                            }
+                        }
+                        .permission-switch {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

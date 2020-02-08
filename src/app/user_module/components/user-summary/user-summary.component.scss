@@ -1,0 +1,39 @@
+@import 'vars';
+
+.user-summary {
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 220px;
+        }
+        span {
+            color: #B0ACAC;
+            font-family: 'Segoe UI light', sans-serif;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+    .name {
+        margin: 40px 0;
+        h1 {
+            font-family: 'Segoe UI semibold', sans-serif;
+            font-size: 48px;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 15px;
+        }
+        span {
+            font-size: 16px;
+            font-family: 'Segoe UI light', sans-serif;
+        }
+    }
+    .botton-container {
+        text-align: center;
+        button {
+            @include button($color-purple, 1, 1);
+        }
+    }
+}

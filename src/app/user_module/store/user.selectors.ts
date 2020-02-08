@@ -1,5 +1,5 @@
 import * as fromUsers from './user.reducer';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector, props } from '@ngrx/store';
 
 
 export const selectUsersState = createFeatureSelector<fromUsers.State>(fromUsers.userFeatureKey);
@@ -22,4 +22,9 @@ export const loading$ = createSelector(
 export const error$ = createSelector(
     selectUsersState,
     state => state.error
+);
+
+export const selectUser = createSelector(
+    selectUsersState,
+    (state: fromUsers.State, id: string) => state.entities[id]
 );

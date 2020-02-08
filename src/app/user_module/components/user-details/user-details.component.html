@@ -1,0 +1,52 @@
+<div class="user-details">
+    <div class="title">
+        <h1>Details</h1>
+    </div>
+    <div class="active">
+        <div class="img-container">
+            <img src="assets/images/switch-active.svg" alt="">
+        </div>
+        <span>The user is <b>{{'Active'}}</b></span>
+    </div>
+    <div class="form">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-row">
+                <div class="form-control">
+                    <input type="text"
+                    minlength="2"
+                    name="firstName"
+                    [ngModel]="copyUser?.firstName"
+                    (ngModelChange)="copyUser.firstName=$event">
+                    <label>*First Name</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-control">
+                    <input type="text"
+                    minlength="2"
+                    name="lastName"
+                    [ngModel]="copyUser?.lastName"
+                    (ngModelChange)="copyUser.lastName=$event">
+                    <label>*Last Name</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-control select-options">
+                    <select 
+                        ngModel
+                        name="role"
+                        required
+                        [ngModel]="copyUser?.role"
+                        (ngModelChange)="copyUser.role=$event">
+                            <option value="Admin" [selected]="copyUser?.role === 'Admin'">Admin</option>
+                            <option value="User" [selected]="copyUser?.role === 'User'">User</option>
+                      </select>
+                    <label>*Role</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
