@@ -14,6 +14,31 @@
                     opacity: .3;
                 }
             }
+            .flex-center {
+                display: flex;
+                align-items: center;
+                padding-left: 50px;
+                .icon-container {
+                    height: 32px;
+                    width: 48px;
+                    line-height: 42px;
+                    border-radius: 30px;
+                    margin-right: 15px;
+                    img {
+                        display: none;
+                    }
+                }
+                .show-key {
+                    img {
+                        display: inline!important;
+                    }
+                }
+            }
+            .active-user {
+                .show-key {
+                    background: $color-purple;
+                }
+            }
             .active-th {
                 opacity: 1!important;
             }
@@ -105,11 +130,22 @@
             justify-content: space-between;
             padding-left: 100px;
             padding-right: 20px;
+            span {
+                font-family: 'Segoe UI light', sans-serif;
+            }
+            select {
+                font-weight: bold;
+                width: 37px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                margin-left: 10px;
+                background: transparent;
+            }
             .pagination {
                 display: flex;
                 align-items: center;
                 span {
-                    font-family: 'Segoe UI light', sans-serif;
                     cursor: pointer;
                 }
                 .disabled {

@@ -1,4 +1,4 @@
-import { selectAllUsers$, loading$ } from './../../store/user.selectors';
+import { selectAllUsers$, loading$, loaded$ } from './../../store/user.selectors';
 import { State } from './../../store/user.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -20,6 +20,7 @@ export class UsersPageComponent implements OnInit {
   delUserId: string;
 
   loading$: Observable<boolean>;
+  loaded$: Observable<boolean>;
 
   ngOnInit() {
     this.store.select(selectAllUsers$).pipe(take(1)).subscribe( users => {
@@ -27,6 +28,7 @@ export class UsersPageComponent implements OnInit {
     });
 
     this.loading$ = this.store.select(loading$);
+    this.loaded$ = this.store.select(loaded$);
   }
 
   openDelUserModal(id: string) {

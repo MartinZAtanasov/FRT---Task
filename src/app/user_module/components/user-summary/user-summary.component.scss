@@ -7,6 +7,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
         img {
             width: 220px;
         }
@@ -15,6 +16,21 @@
             font-family: 'Segoe UI light', sans-serif;
             font-size: 14px;
             margin-top: 10px;
+        }
+
+        .icon-container {
+            height: 51px;
+            width: 77px;
+            border-radius: 30px;
+            background: $color-purple;
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            bottom: 15%;
+            right: 0;
+            img {
+                width: auto;
+            }
         }
     }
     .name {

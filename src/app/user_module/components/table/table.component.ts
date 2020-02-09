@@ -18,7 +18,7 @@ export class TableComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   // Table
   users: User[];
-  filteredUsers: User[];
+  filteredUsers: User[] = [];
   rows = 5;
   paginationCount = 2;
   currentPage = 1;
@@ -40,6 +40,7 @@ export class TableComponent implements OnInit, OnDestroy {
       this.currentPage = 1;
       this.filterString = filterString;
     }));
+    this.filterString = null;
   }
 
   navigatoToUser(id: string): void {
@@ -62,6 +63,13 @@ export class TableComponent implements OnInit, OnDestroy {
         } else {
           return pages.filter( v => v <= this.currentPage + range && v > this.currentPage - range);
         }
+    }
+  }
+
+  selectRows(): void {
+    const usersLength = this.filteredUsers.length ? this.filteredUsers.length : this.users.length;
+    if (this.rows * this.currentPage > usersLength) {
+      this.currentPage = Math.ceil(usersLength / this.rows);
     }
   }
 

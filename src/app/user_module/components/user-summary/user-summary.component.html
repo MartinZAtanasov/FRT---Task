@@ -1,5 +1,8 @@
 <div class="user-summary" [ngClass]="{'inactive': !user?.active}">
     <div class="img-container">
+        <div class="icon-container" *ngIf="user?.role === 'Admin'">
+            <img src="assets/images/key-active.svg" alt="">
+        </div>
         <img src="assets/images/profile.svg" alt="">
         <span>UPLOAD A PHOTO</span>
     </div>

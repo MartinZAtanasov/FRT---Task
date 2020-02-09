@@ -12,8 +12,11 @@
                 <th 
                     (click)="onSort('role')"
                     [ngClass]="{'active-th': sortProperty.activeSort === 'role'}">
-                        ROLE 
-                        <img src="assets/images/caret-down-active.svg" alt="">
+                        <div class="flex-center">
+                            <div class="icon-container"></div>
+                            ROLE 
+                            <img src="assets/images/caret-down-active.svg" alt="">
+                        </div>
                 </th>
                 <th 
                     (click)="onSort('status')"
@@ -30,7 +33,16 @@
                     </div>
                 </td>
                 <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
-                <td> <b>{{user.role}}</b> </td>
+                <td>
+                    <div class="flex-center" [ngClass]="{'active-user': user.active}">
+                        <div class="icon-container"
+                        [ngClass]="{'show-key': user.role === 'Admin'}"
+                        >
+                            <img [src]="user.active ? 'assets/images/key-active.svg' : 'assets/images/key-gray.svg'">
+                        </div> 
+                        <b>{{user.role}}</b>
+                    </div>
+                </td>
                 <td class="switch-container">
                     <img 
                         [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
@@ -45,7 +57,12 @@
         </table>
         <div class="controls">
             <div class="select-rows">
-                Records on page
+                <span>Records on page</span>
+                <select [(ngModel)]="rows" class="records-per-page" (change)="selectRows()">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
             </div>
             <div class="pagination" *ngIf="pages()">
                 <span (click)="navigate(false)" [ngClass]="{'disabled': currentPage === 1}">Previous</span>

@@ -41,12 +41,14 @@ export interface User {
 export interface State extends EntityState<User> {
   loading: boolean;
   error: string;
+  loaded: boolean;
 }
 export const adapter: EntityAdapter<User> = createEntityAdapter<User>({
 });
 export const initialState: State = adapter.getInitialState({
   loading: false,
   error: null,
+  loaded: false,
 });
 const recipesReducer = createReducer(initialState,
     on(
@@ -56,11 +58,12 @@ const recipesReducer = createReducer(initialState,
       fromUserAction.onFetchUsers,
       state => ({...state, loading: true, error: null})
     ),
-    on(fromUserAction.addUser, (state, newRecipe) => adapter.addOne(newRecipe, {...state, loading: false})),
+    on(fromUserAction.clearLoadedAndError, state => ({...state, loaded: false, error: null})),
+    on(fromUserAction.addUser, (state, newRecipe) => adapter.addOne(newRecipe, {...state, loading: false, loaded: true})),
     on(fromUserAction.errorUser, (state, payload) => ({...state, loading: false, error: payload.msg})),
     on(fromUserAction.fetchUsers, (state, {users}) => adapter.addAll(users, {...state, loading: false})),
-    on(fromUserAction.updateUser, (state, {user} ) => adapter.updateOne(user, {...state, loading: false})),
-    on(fromUserAction.deleteUser, (state, {id} ) => adapter.removeOne(id, {...state, loading: false})),
+    on(fromUserAction.updateUser, (state, {user} ) => adapter.updateOne(user, {...state, loading: false, loaded: true})),
+    on(fromUserAction.deleteUser, (state, {id} ) => adapter.removeOne(id, {...state, loading: false, loaded: true})),
 
 );
 export function reducer(state: State | undefined, action: Action) {

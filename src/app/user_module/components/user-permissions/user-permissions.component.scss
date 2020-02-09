@@ -92,6 +92,9 @@
                                 background: #ff0000;
                                 margin-right: 10px;
                             }
+                            .active-shape {
+                                background: $color-light-blue;
+                            }
                         }
                         .permission-switch {
                             display: flex;
@@ -105,5 +108,12 @@
                 }
             }
         }
+    }
+}
+
+.inactive-user {
+    .permissions, .title span {
+        opacity: .3;
+        pointer-events: none;
     }
 }

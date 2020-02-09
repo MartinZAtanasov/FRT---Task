@@ -17,3 +17,5 @@ export const updateUser = createAction('[User] Update', props<{ user: Update<Use
 export const onDeleteUser = createAction('[User] On delete', props<{id: string}>());
 export const deleteUser = createAction('[User] Delete', props<{id: string}>());
 
+export const clearLoadedAndError = createAction('[User] Clear loaded and error');
+

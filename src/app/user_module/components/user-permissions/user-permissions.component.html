@@ -1,4 +1,4 @@
-<div class="user-permissions">
+<div class="user-permissions" [ngClass]="{'inactive-user': !user?.active}">
     <div class="title">
         <h1>Permissions</h1>
         <span>{{user?.role === 'Admin' ? 'Admin' : 'User'}}</span>
@@ -32,7 +32,7 @@
                 <ul>
                     <li *ngFor="let permission of permissions">
                         <div class="permission-name">
-                            <div class="shape"></div>
+                            <div class="shape" [ngClass]="{'active-shape': groups[group][permission]}"></div>
                             <p>Permission {{group}}{{permission}}</p>
                         </div>
                         <div class="permission-switch">
