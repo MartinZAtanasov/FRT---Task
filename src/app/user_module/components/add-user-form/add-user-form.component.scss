@@ -9,12 +9,12 @@
 
         button {
             margin-left: 40px;
-            @include button($color-light-blue, 0, 0)
+            @include button($color-primary, 0, 0)
         }
 
         .disabled {
-            background: #c6c6c6;
-            color: #979797;
+            background: $color-gray;
+            color: $color-button-disabled;
         }
 
         .icon {

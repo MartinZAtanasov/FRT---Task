@@ -2,7 +2,7 @@
 
 .table-header {
     height: 200px;
-    box-shadow: $shadow;
+    box-shadow: $shadow-header;
     position: relative;
     background: white;
     .container {
@@ -22,7 +22,7 @@
                     width: 60px;
                     height: 60px;
                     border-radius: 50%;
-                    background-color: #305eca;
+                    background-color: $color-primary-dark;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -50,7 +50,7 @@
                         font-size: 20px;
                         &::placeholder {
                             font-style: italic;
-                            color: #707070;
+                            font-family: 'Segoe UI light', sans-serif;
                         }
                         &:focus {
                             outline: none;
@@ -67,5 +67,23 @@
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    .container {
+      width: 96%;
+    }
+}
+@media only screen and (max-width: 625px) {
+    .second-col {
+      flex-direction: column;
+      text-align: center;
+      input {
+          margin: 15px 0;
+      }
+    }
+    .first-col {
+        width: 0!important;
     }
 }

@@ -1,60 +1,62 @@
 <div class="table">
     <div class="container">
-        <table>
-            <tr>
-                <th></th>
-                <th 
-                    (click)="onSort('name')"
-                    [ngClass]="{'active-th': sortProperty.activeSort === 'name'}">
-                        USER 
-                        <img src="assets/images/caret-down-active.svg" alt="">
-                </th>
-                <th 
-                    (click)="onSort('role')"
-                    [ngClass]="{'active-th': sortProperty.activeSort === 'role'}">
-                        <div class="flex-center">
-                            <div class="icon-container"></div>
-                            ROLE 
+        <div style="overflow-x: auto;">
+            <table>
+                <tr>
+                    <th></th>
+                    <th 
+                        (click)="onSort('name')"
+                        [ngClass]="{'active-th': sortProperty.activeSort === 'name'}">
+                            USER 
                             <img src="assets/images/caret-down-active.svg" alt="">
+                    </th>
+                    <th 
+                        (click)="onSort('role')"
+                        [ngClass]="{'active-th': sortProperty.activeSort === 'role'}">
+                            <div class="flex-center">
+                                <div class="icon-container"></div>
+                                ROLE 
+                                <img src="assets/images/caret-down-active.svg" alt="">
+                            </div>
+                    </th>
+                    <th 
+                        (click)="onSort('status')"
+                        [ngClass]="{'active-th': sortProperty.activeSort === 'status'}">
+                            STATUS 
+                            <img src="assets/images/caret-down-active.svg" alt="">
+                    </th>
+                    <th>ACTIONS</th>
+                </tr>
+                <tr *ngFor="let user of displayedUsers()" [ngClass]="{'inactive': !user.active}">
+                    <td> 
+                        <div class="profile-img-container">
+                            <img src="assets/images/profile.svg"> 
                         </div>
-                </th>
-                <th 
-                    (click)="onSort('status')"
-                    [ngClass]="{'active-th': sortProperty.activeSort === 'status'}">
-                        STATUS 
-                        <img src="assets/images/caret-down-active.svg" alt="">
-                </th>
-                <th>ACTIONS</th>
-            </tr>
-            <tr *ngFor="let user of displayedUsers()" [ngClass]="{'inactive': !user.active}">
-                <td> 
-                    <div class="profile-img-container">
-                        <img src="assets/images/profile.svg"> 
-                    </div>
-                </td>
-                <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
-                <td>
-                    <div class="flex-center" [ngClass]="{'active-user': user.active}">
-                        <div class="icon-container"
-                        [ngClass]="{'show-key': user.role === 'Admin'}"
+                    </td>
+                    <td> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
+                    <td>
+                        <div class="flex-center" [ngClass]="{'active-user': user.active}">
+                            <div class="icon-container"
+                            [ngClass]="{'show-key': user.role === 'Admin'}"
+                            >
+                                <img [src]="user.active ? 'assets/images/key-active.svg' : 'assets/images/key-gray.svg'">
+                            </div> 
+                            <b>{{user.role}}</b>
+                        </div>
+                    </td>
+                    <td class="switch-container">
+                        <img 
+                            [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                            (click)="switchStatus(user)"
                         >
-                            <img [src]="user.active ? 'assets/images/key-active.svg' : 'assets/images/key-gray.svg'">
-                        </div> 
-                        <b>{{user.role}}</b>
-                    </div>
-                </td>
-                <td class="switch-container">
-                    <img 
-                        [src]="user.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
-                        (click)="switchStatus(user)"
-                    >
-                </td>
-                <td>
-                    <i class="fa fa-cog" (click)="navigatoToUser(user.id)"></i> 
-                    <i class="fa fa-trash" (click)="deleteUser(user.id)"></i>
-                </td>
-            </tr>
-        </table>
+                    </td>
+                    <td>
+                        <i class="fa fa-cog" (click)="navigatoToUser(user.id)"></i> 
+                        <i class="fa fa-trash" (click)="deleteUser(user.id)"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class="controls">
             <div class="select-rows">
                 <span>Records on page</span>

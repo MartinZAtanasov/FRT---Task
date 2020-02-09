@@ -1,4 +1,5 @@
-.loading {
+@import 'vars';
+.success {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -10,8 +11,8 @@
     justify-content: center;
     padding-bottom: 40px;
     pointer-events: none;
-    .loading-container {
-        background: green;
+    .success-container {
+        background: $color-success;
         color: white;
         padding: 20px;
         letter-spacing: 3px;

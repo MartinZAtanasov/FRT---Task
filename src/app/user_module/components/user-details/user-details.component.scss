@@ -14,7 +14,7 @@
         padding-left: 60px;
         height: 100%;
         button {
-            @include button($color-light-blue, 1, 1);
+            @include button($color-primary, 1, 1);
             position: absolute;
             bottom: 0;
         }
@@ -26,8 +26,8 @@
             position: relative;
 
             .disabled {
-                background: #c6c6c6;
-                color: #979797;
+                background: $color-gray;
+                color: $color-button-disabled;
             }
         }
     }
@@ -50,9 +50,35 @@
     .form {
         opacity: .3;
         pointer-events: none;
+        transition: .2s ease;
         button {
             opacity: 0;
-            pointer-events: none;
         }
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .title {
+        padding-left: 0!important;
+        text-align: center;
+    }
+    .active {
+        justify-content: center;
+    }
+    .form {
+        padding-left: 0!important;
+        button {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        form {
+            height: 90%!important;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .user-details {
+        min-width: auto;
     }
 }

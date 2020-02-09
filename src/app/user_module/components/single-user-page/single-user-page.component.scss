@@ -13,3 +13,18 @@
     }
 }
 
+@media only screen and (max-width: 1400px) {
+    .container {
+      width: 96%;
+    }
+}
+
+
+@media only screen and (max-width: 1140px) {
+    .row {
+        flex-direction: column;
+        .col {
+            margin: 40px 15px;
+        }
+    }
+}

@@ -1,3 +1,5 @@
+@import 'vars';
+
 .loading {
     position: fixed;
     width: 100%;
@@ -11,9 +13,9 @@
     padding-bottom: 40px;
 
     .loading-container {
-        background: #305eca;
+        background: $color-primary;
         color: white;
         padding: 20px;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
     }
 }

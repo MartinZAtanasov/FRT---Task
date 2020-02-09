@@ -2,9 +2,13 @@
 
 .table-header {
     height: 200px;
-    box-shadow: $shadow;
+    box-shadow: $shadow-header;
     position: relative;
     background: white;
+
+    h1 {
+        text-align: center;
+    }
     .container {
         height: 100%;
         .row {
@@ -22,7 +26,7 @@
                     width: 60px;
                     height: 60px;
                     border-radius: 50%;
-                    background-color: #C6C6C6;
+                    background-color: $color-gray;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -36,5 +40,19 @@
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    .container {
+      width: 96%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .first-col {
+        width: 0!important;
+    }
+    .second-col {
+        flex-grow: 1;
     }
 }

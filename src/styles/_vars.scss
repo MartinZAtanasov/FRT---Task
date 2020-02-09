@@ -1,16 +1,5 @@
-$shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-$add-more-btn-bg: #305eca;
-$gray-bg: #f3f3f3;
-
-// Table
-$table-not-selected: #999999;
-$table-border-color: #e6e6e6;
-$form-input-border: #e8e8e8;
-$form-color-blue: #44a0d3;
-$color-light-blue: #33A3DC;
-
-
 // Colors
+$gray-bg: #f3f3f3;
 $color-purple: #7E7EF1;
 $color-primary: #44A0D3;
 $color-primary-dark: #305ECA;
@@ -19,6 +8,8 @@ $color-gray: #C6C6C6;
 $color-button-disabled: #979797;
 $color-success: #44D36A;
 $color-body-bg: #f3f3f3;
+$shadow-header: 0px 3px 6px #00000029;
+$color-table-border: #D8D8D8;
 // Mixins
 @mixin button($background-color, $size: 0, $shadow: 0,) {
     background: $background-color;

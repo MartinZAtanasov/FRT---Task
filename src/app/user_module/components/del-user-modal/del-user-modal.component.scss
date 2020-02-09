@@ -10,14 +10,14 @@
             width: 40px;
         }
         .info {
-            border-bottom: 2px solid #e8e8e8;
+            border-bottom: 1px solid $color-table-border;
             flex-grow: 1;
             padding-bottom: 40px;
             .active-user {
-                color: $color-light-blue;
+                color: $color-primary;
             }
             .inactive-user {
-                color: red;
+                color: $color-danger;
             }
             p {
                 display: flex;
@@ -28,7 +28,7 @@
     .button-container {
         padding-left: 40px;
         button {
-            @include button(red, 0, 0);
+            @include button($color-danger, 0, 0);
         }
     }
 }

@@ -11,6 +11,7 @@ body {
 .container {
     width: 80%;
     margin: 0px auto;
+    transition: .2s ease;
 }
 .row {
     width: 100%;
@@ -24,7 +25,7 @@ h1 {
 form {
     input {
         border: none;
-        border-bottom: 2px solid $form-input-border;
+        border-bottom: 2px solid $color-gray;
         padding: 5px;
         background: transparent;
         &:focus {
@@ -44,38 +45,38 @@ form {
                 &:focus ~ label {
                     bottom: 35px;
                     font-size: 10px;
-                    color: $form-color-blue;
+                    color: $color-primary;
                 }
                 &:valid ~ label {
                     bottom: 35px;
                     font-size: 10px;
-                    color: $form-color-blue;
+                    color: $color-primary;
                 }
             }            
             .ng-invalid.ng-dirty ~ label {
-                color: red;
+                color: $color-danger;
             }
             .ng-touched ~ label {
-                color: red;
+                color: $color-danger;
                 bottom: 35px;
                 font-size: 10px;
-                color: $form-color-blue;
+                color: $color-primary;
             }
             label {
                 position: absolute;
                 pointer-events: none;
                 left: 5px;
-                bottom: 7px;
-                font-size: 14px;
+                bottom: 15px;
+                font-size: 16px;
                 transition: .2s ease;
-                color: $table-not-selected;
+                color: $color-gray;
             }
         }
         .select-options {
             select {
                 width: 100%;
                 border: none;
-                border-bottom: 2px solid $form-input-border;
+                border-bottom: 2px solid $color-gray;
                 padding: 5px;
                 background: transparent;
                 &:focus {
@@ -84,12 +85,12 @@ form {
                 &:focus ~ label {
                     bottom: 35px;
                     font-size: 10px;
-                    color: $form-color-blue;
+                    color: $color-primary;
                 }
                 &:valid ~ label {
                     bottom: 35px;
                     font-size: 10px;
-                    color: $form-color-blue;
+                    color: $color-primary;
                 }
             }
         }
