@@ -1,5 +1,5 @@
 # FRT - Task
-    Project deployed [here](https://frt-task.firebaseapp.com/users)
+    Project deployed -> https://frt-task.firebaseapp.com/users
     
 ## Includes
     1. Angular 8

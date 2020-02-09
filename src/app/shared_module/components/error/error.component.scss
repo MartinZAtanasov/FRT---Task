@@ -9,13 +9,15 @@
     z-index: 1000;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
     padding-bottom: 40px;
+    padding-right: 40px;
 
     .error-container {
         background: $color-danger;
         color: white;
-        padding: 20px;
+        padding: 15px;
         letter-spacing: 2px;
+        opacity: 0.5;
     }
 }

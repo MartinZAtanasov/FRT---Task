@@ -9,13 +9,16 @@
     z-index: 1000;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
     padding-bottom: 40px;
+    padding-right: 40px;
+
 
     .loading-container {
         background: $color-primary;
         color: white;
         padding: 20px;
         letter-spacing: 2px;
+        opacity: .5;
     }
 }

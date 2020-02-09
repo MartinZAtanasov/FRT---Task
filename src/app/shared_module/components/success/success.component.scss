@@ -8,13 +8,16 @@
     z-index: 1000;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
     padding-bottom: 40px;
+    padding-right: 40px;
     pointer-events: none;
+
     .success-container {
         background: $color-success;
         color: white;
         padding: 20px;
         letter-spacing: 3px;
+        opacity: .5;
     }
 }
