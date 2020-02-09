@@ -5,11 +5,13 @@ import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { onFetchUsers } from '../../store/user.actions';
 import { Observable } from 'rxjs';
+import { fadeInOut } from 'src/app/animations';
 
 @Component({
   selector: 'app-users-page',
   templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.scss']
+  styleUrls: ['./users-page.component.scss'],
+  animations: [fadeInOut]
 })
 export class UsersPageComponent implements OnInit {
 

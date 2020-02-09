@@ -1,5 +1,5 @@
 import { State } from './../../../user_module/store/user.reducer';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { clearLoadedAndError } from 'src/app/user_module/store/user.actions';
 
@@ -11,6 +11,8 @@ import { clearLoadedAndError } from 'src/app/user_module/store/user.actions';
 export class ErrorComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store<State>) { }
+
+  @Input() msg: string;
 
   ngOnInit() {
     setTimeout( () => {this.store.dispatch(clearLoadedAndError()); }, 4000);

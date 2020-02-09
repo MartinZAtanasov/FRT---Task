@@ -1,4 +1,5 @@
-import { updateUser, onUpdateUser } from './../../store/user.actions';
+import { fade } from 'src/app/animations';
+import { onUpdateUser } from './../../store/user.actions';
 import { User, State } from './../../store/user.reducer';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -9,7 +10,8 @@ import { loading$ } from '../../store/user.selectors';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.scss']
+  styleUrls: ['./user-details.component.scss'],
+  animations: [fade]
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
 

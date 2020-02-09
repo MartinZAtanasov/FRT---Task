@@ -38,9 +38,12 @@
 
         .img-container {
             width: 60px;
-            text-align: center;
+            position: relative;
+            height: 100%;
             img {
                 cursor: pointer;
+                position: absolute;
+                left: 0;
             }
         }
     }

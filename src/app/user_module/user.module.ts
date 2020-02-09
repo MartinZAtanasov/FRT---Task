@@ -34,8 +34,8 @@ import { DelUserModalComponent } from './components/del-user-modal/del-user-moda
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     SharedModule,
+    RouterModule.forChild(routes),
     FormsModule,
     StoreModule.forFeature( userFeatureKey, reducer ),
     EffectsModule.forFeature([UserEffects]),

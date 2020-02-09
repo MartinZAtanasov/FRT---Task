@@ -69,8 +69,12 @@
                     }
                 }
                 .switch-container {
+                    position: relative;
                     img {
                         cursor: pointer;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
                     }
                 }
                 td {

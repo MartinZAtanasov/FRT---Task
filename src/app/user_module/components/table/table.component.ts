@@ -6,11 +6,13 @@ import { Store } from '@ngrx/store';
 import { selectAllUsers$ } from '../../store/user.selectors';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { fade } from 'src/app/animations';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  animations: [fade]
 })
 export class TableComponent implements OnInit, OnDestroy {
 

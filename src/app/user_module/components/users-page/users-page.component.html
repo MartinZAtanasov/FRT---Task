@@ -1,11 +1,11 @@
 <app-table-header (openNewUserModal)="newUserModal = true"></app-table-header>
 <app-table (openDelUserModal)="openDelUserModal($event)"></app-table>
 
-<app-modal *ngIf="newUserModal" (closeModal)="newUserModal = false"> 
+<app-modal *ngIf="newUserModal" (closeModal)="newUserModal = false" @fadeInOut > 
     <app-add-user-form></app-add-user-form>
 </app-modal>
 
-<app-modal *ngIf="delUserModal" (closeModal)="delUserModal = false"> 
+<app-modal *ngIf="delUserModal" (closeModal)="delUserModal = false" @fadeInOut> 
     <app-del-user-modal [userId]="delUserId" (closeModal)="delUserModal = false"></app-del-user-modal>
 </app-modal>
 

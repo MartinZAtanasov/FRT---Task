@@ -4,11 +4,13 @@ import { User } from '../../store/user.reducer';
 import { Store } from '@ngrx/store';
 import { onUpdateUser } from '../../store/user.actions';
 import { Observable, Subscription } from 'rxjs';
+import { fade } from 'src/app/animations';
 
 @Component({
   selector: 'app-user-permissions',
   templateUrl: './user-permissions.component.html',
-  styleUrls: ['./user-permissions.component.scss']
+  styleUrls: ['./user-permissions.component.scss'],
+  animations: [fade]
 })
 export class UserPermissionsComponent implements OnInit, OnDestroy {
 

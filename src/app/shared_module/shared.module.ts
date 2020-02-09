@@ -4,6 +4,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SuccessComponent } from './components/success/success.component';
 import { ErrorComponent } from './components/error/error.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ErrorComponent } from './components/error/error.component';
     ErrorComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   exports: [

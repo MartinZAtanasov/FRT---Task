@@ -5,8 +5,16 @@
     <div class="active">
         <div class="img-container">
             <img 
-                [src]="user?.active ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'" 
+                *ngIf="user?.active"
+                src="assets/images/switch-active.svg" 
                 (click)="switchStatus()"
+                @fade
+            >
+            <img 
+                *ngIf="!user?.active"
+                src="assets/images/switch-not-active.svg" 
+                (click)="switchStatus()"
+                @fade
             >
         </div>
         <span>The user is <b>{{ user?.active ? 'Active' : 'Inactive'}}</b></span>

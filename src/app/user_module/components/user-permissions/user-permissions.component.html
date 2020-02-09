@@ -6,8 +6,16 @@
     <div class="super-admin" [ngClass]="{'inactive': user?.role === 'User'}">
         <span><b>Super Admin</b></span>
         <img 
-            [src]="user?.superAdmin ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+            *ngIf="user?.superAdmin"
+            src="assets/images/switch-active.svg"
             (click)="switchSuperAdmin()"
+            @fade
+        >
+        <img 
+            *ngIf="!user?.superAdmin"
+            src="assets/images/switch-not-active.svg"
+            (click)="switchSuperAdmin()"
+            @fade
         >
     </div>
     <div class="permissions">
@@ -21,9 +29,17 @@
                     <b>Permission group {{group}}</b>
                 </div>
                 <div class="switch">
-                    <img 
-                        [src]="groups[group][0] ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                    <img
+                        *ngIf="groups[group][0]"
+                        src="assets/images/switch-active.svg"
                         (click)="switchGroup(group)"
+                        @fade
+                    >
+                    <img 
+                        *ngIf="!groups[group][0]"
+                        src="assets/images/switch-not-active.svg"
+                        (click)="switchGroup(group)"
+                        @fade
                     >
                 </div>
             </div>
@@ -37,8 +53,16 @@
                         </div>
                         <div class="permission-switch">
                             <img 
-                                [src]="groups[group][permission] ? 'assets/images/switch-active.svg' : 'assets/images/switch-not-active.svg'"
+                                *ngIf="groups[group][permission]"
+                                src="assets/images/switch-active.svg"
                                 (click)="switchPermission(group, permission)"
+                                @fade
+                            >
+                            <img 
+                                *ngIf="!groups[group][permission]"
+                                src="assets/images/switch-not-active.svg"
+                                (click)="switchPermission(group, permission)"
+                                @fade
                             >
                         </div>
                     </li>
