@@ -33,7 +33,7 @@
                             <img src="assets/images/profile.svg"> 
                         </div>
                     </td>
-                    <td class="td-name"> <b>{{user.firstName + ' ' + user.lastName}}</b> <br> <small>{{user.email}}</small> </td>
+                    <td class="td-name"> <b>{{(user.firstName | capitalizeFirstLetter) + ' ' + (user.lastName | capitalizeFirstLetter)}}</b> <br> <small>{{user.email}}</small> </td>
                     <td>
                         <div class="flex-center" [ngClass]="{'active-user': user.active}">
                             <div class="icon-container"

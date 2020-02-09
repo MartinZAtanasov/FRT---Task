@@ -5,6 +5,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { SuccessComponent } from './components/success/success.component';
 import { ErrorComponent } from './components/error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CapitalizeFirstLetterPipe } from './pipes/capitalize-first-letter.pipe';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoadingComponent,
     SuccessComponent,
     ErrorComponent,
+    CapitalizeFirstLetterPipe,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoadingComponent,
     SuccessComponent,
     ErrorComponent,
+    CapitalizeFirstLetterPipe
   ]
 })
 export class SharedModule { }

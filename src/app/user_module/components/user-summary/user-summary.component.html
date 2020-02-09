@@ -7,7 +7,7 @@
         <span>UPLOAD A PHOTO</span>
     </div>
     <div class="name">
-        <h1>{{user?.firstName}} <br> {{user?.lastName}}</h1>
+        <h1>{{user?.firstName | capitalizeFirstLetter}} <br> {{user?.lastName | capitalizeFirstLetter}}</h1>
         <span>{{user?.email}}</span>
     </div>
     <div class="botton-container">
